@@ -5,13 +5,12 @@
 <head>
 	<meta charset='UTF-8'>
 
-	<title>Test</title>
+	<title>ABABBA</title>
 	<style>
 		body {
 			font-family: monospace, courier;
 		}
 		.main {
-			
 			width:100%;
 			text-align:center;
 			vertical-align: middle;
@@ -38,10 +37,10 @@
 	
 <body>
 <div id="instructions" class="main top"></div>
-<div id="text"class="main mid">abababa</div>
+<div id="text"class="main mid"></div>
 <div class="main bot">
-	<input type="button" value="a"/>
-	<input type="button" value="b"/>
+	<input type="button" value="A"/>
+	<input type="button" value="B"/>
 </div>
 
 
@@ -57,24 +56,43 @@
 	GAME = {
 		levels: [
 			{
-				instructions: "Getting started",
+				instructions: "Level 1",
 				text: "A",
 				sequence: ["A"]
 			},
 			{
-				instructions: "Let's go",
+				instructions: "Level 2",
 				text: "AB",
 				sequence: ["A", "B"]
+			},
+			{
+				instructions: "Level 3",
+				text: "ABABBA",
+				sequence: ["A", "B", "A", "B", "B", "A"]
+			},
+			{
+				instructions: "Level 4: A=B; B=A",
+				text: "BABA",
+				sequence: ["A", "B", "A", "B"]
 			}
 		],
 		init: function() {
 			this.startLevel(0);
 		},
 		startLevel: function(level) {
-			$("#instructions").html(this.levels[level].instructions);
-			$("#text").html(this.levels[level].text);
-			$("input[value='a']").on("click", function() {
-				GAME.startLevel(++level);
+			GAME.tmp_seq = GAME.levels[level].sequence.slice();
+			$("#instructions").html(GAME.levels[level].instructions);
+			$("#text").html(GAME.levels[level].text);
+			$("input").on("click", function() {
+				if ($(this).val() == GAME.tmp_seq[0]) {
+					GAME.tmp_seq.shift();
+					if (GAME.tmp_seq.length == 0) {
+						$("input").off();
+						GAME.startLevel(++level);
+					}
+				} else {
+					GAME.startLevel(--level);
+				}
 			});
 		}
 	}

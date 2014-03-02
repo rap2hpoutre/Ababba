@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+
+	<title>Test</title>
+	<style>
+		body {
+			font-family: monospace, courier;
+		}
+		.main {
+			
+			width:100%;
+			text-align:center;
+			vertical-align: middle;
+		}
+		input {
+			font-size:18vh;
+			height:22vh;
+			width:22vh;
+		}
+		.top {
+			font-size:5vw;
+			height:30vh;
+		}
+		.mid {
+			font-size:8vw;
+			height:35vh;
+		}
+		.bot {
+			font-size:8vw;
+			height:30vh;
+		}
+	</style>
+
+	
+<body>
+<div id="instructions" class="main top"></div>
+<div id="text"class="main mid">abababa</div>
+<div class="main bot">
+	<input type="button" value="a"/>
+	<input type="button" value="b"/>
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+	$(function() {
+		causeRepaintsOn = $("div");
+		$(window).resize(function() {
+			causeRepaintsOn.css("z-index", 1);
+		});
+		GAME.init();
+	});
+	GAME = {
+		levels: [
+			{
+				instructions: "Getting started",
+				text: "A",
+				sequence: ["A"]
+			},
+			{
+				instructions: "Let's go",
+				text: "AB",
+				sequence: ["A", "B"]
+			}
+		],
+		init: function() {
+			this.startLevel(0);
+		},
+		startLevel: function(level) {
+			$("#instructions").html(this.levels[level].instructions);
+			$("#text").html(this.levels[level].text);
+			$("input[value='a']").on("click", function() {
+				GAME.startLevel(++level);
+			});
+		}
+	}
+</script>
+</body>

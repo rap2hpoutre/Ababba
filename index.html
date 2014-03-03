@@ -15,6 +15,11 @@
 			text-align:center;
 			vertical-align: middle;
 		}
+		#timer {
+			width:1%;
+			height: 2vh;
+			background: #888;
+		}
 		input {
 			font-size:8vw;
 			height:22vh;
@@ -49,9 +54,10 @@
 		}
 	</style>
 
-	
+
 <body>
 <div id="instructions" class="main top"></div>
+<div id="timer"></div>
 <div id="text"class="main mid"></div>
 <div class="main bot">
 	<input type="button" value="A"/>
@@ -62,25 +68,11 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>
-	$(function() {
-		causeRepaintsOn = $("div");
-		$(window).resize(function() {
-			causeRepaintsOn.css("z-index", 1);
-		});
-		$("input").bind("click", function() {
-			if ($(this).val() == GAME.tmp_seq[0]) {
-				GAME.tmp_seq.shift();
-				if (GAME.tmp_seq.length == 0) {
-					GAME.startLevel(++GAME.level);
-				}
-			} else {
-				GAME.startLevel(--GAME.level);
-				$(".failed").fadeIn("fast").fadeOut("slow");
-			}
-		});
-		GAME.init();
-	});
-	GAME = {
+
+	/**
+	 * Game Object
+	 */
+	game = {
 		level: 1,
 		levels: [
 			{
@@ -105,15 +97,58 @@
 			}
 		],
 		init: function() {
-			GAME.startLevel(0);
+			this.startLevel(0);
 		},
 		startLevel: function(level) {
 			level > 0 || (level = 0);
-			GAME.level = level;
-			GAME.tmp_seq = GAME.levels[GAME.level].sequence.slice();
-			$("#instructions").html(GAME.levels[GAME.level].instructions);
-			$("#text").html(GAME.levels[GAME.level].text);
+			timer.start();
+			this.level = level;
+			this.tmp_seq = this.levels[this.level].sequence.slice();
+			$("#instructions").html(this.levels[this.level].instructions);
+			$("#text").html(this.levels[this.level].text);
 		}
 	}
+	timer = {
+		start: function() {
+			this.stop();
+			this.current_progress = 0;
+			$('#timer').animate(
+				{ width:"99%" },
+				5000,
+				"linear",
+				function() {
+					game.startLevel(--game.level);
+					$(".failed").fadeIn("fast").fadeOut("slow");
+				}
+			);
+		},
+		stop: function () {
+			$('#timer').stop().width('1%');
+		}
+	}
+
+	/**
+	 * On Load
+	 */
+	$(function() {
+		// Resize
+		causeRepaintsOn = $("div,input");
+		$(window).resize(function() {
+			causeRepaintsOn.css("z-index", 1);
+		});
+		// Click A or B
+		$("input").bind("click", function() {
+			if ($(this).val() == game.tmp_seq[0]) {
+				game.tmp_seq.shift();
+				if (game.tmp_seq.length == 0) {
+					game.startLevel(++game.level);
+				}
+			} else {
+				game.startLevel(--game.level);
+				$(".failed").show().fadeOut("slow");
+			}
+		});
+		game.init();
+	});
 </script>
 </body>

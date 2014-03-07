@@ -272,11 +272,82 @@
 				sequence: ["B", "A", "A", "B", "A", "A", "A"]
 			},
 			{
-				instructions: "THE END...",
+				instructions: "Checkpoint: Back to normal",
 				text: "AA",
 				sequence: ["A", "A"],
 				timer: false
 			},
+			{
+				instructions: "<span style=\"color:green\">GREEN</span> is B, <span style=\"color:red\">RED</span> is A",
+				text: "B<span style=\"color:green\">A</span><span style=\"color:red\">B</span>",
+				sequence: ["B", "B", "A"]
+			},
+			{
+				instructions: "<span style=\"color:green\">GREEN</span> is A, <span style=\"color:red\">RED</span> is A",
+				text: "<span style=\"color:red\">B</span><span style=\"color:green\">A</span><span style=\"color:red\">B</span>",
+				sequence: ["A", "A", "A"]
+			},
+			{
+				instructions: "<span style=\"color:green\">GREEN R</span> is A, <span style=\"color:red\">RED F</span> is B",
+				text: "<span style=\"color:green\">R</span><span style=\"color:green\">A</span><span style=\"color:red\">F</span>",
+				sequence: ["A", "A", "B"]
+			},
+			{
+				instructions: "BAck to normAl"
+				text: "a",
+				sequence: ["A"]
+			},
+			{
+				instructions: "Read from right to left"
+				text: "AB",
+				sequence: ["B", "A"]
+			},
+			{
+				instructions: "Read from right to left"
+				text: "ABBABA",
+				sequence: ["A", "B", "A", "B", "B", "A"]
+			},
+			{
+				instructions: "Read from right to left"
+				text: "BABBABBA",
+				sequence: ["B", "A", "B", "B", "A", "B", "B", "A"]
+			},
+			{
+				instructions: "Read from right to left"
+				text: "A",
+				sequence: ["A"]
+			},
+			{
+				instructions: "Read from left to right"
+				text: "AB",
+				sequence: ["B", "A"]
+			},
+			{
+				instructions: "<span style=\"color:green\">GREEN B</span> is A, <span style=\"color:red\">RED B</span> is B",
+				text: "BA<span style=\"color:green\">BB</span>AB<span style=\"color:red\">B</span>A",
+				sequence: ["B", "A", "A", "A", "A", "B", "A", "A"]
+			},
+			{
+				instructions: "Checkpoint: Back to normal",
+				text: "BBB",
+				sequence: ["B", "B", "B"],
+				timer: false
+			},
+			{
+				instructions: "Read only A and B"
+				text: "BAVE",
+				sequence: ["B", "A"]
+			},
+			{
+				instructions: "Read only A and B"
+				text: "LOREM IBSUM",
+				sequence: ["B"]
+			},
+			{
+				instructions: "Read only A and B"
+				text: "A BAS BABAR !",
+				sequence: ["A", "B", "A", "B", "A", , "B", "A"]
+			}
 		],
 		init: function() {
 			this.startLevel(0);

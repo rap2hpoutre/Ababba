@@ -144,7 +144,7 @@
 				sequence: ["B", "A", "B", "B", "A", "B", "A"]
 			},
 			{
-				instructions: "Checkpoint: Back to normal",
+				instructions: "Back to normal",
 				text: "BABA",
 				sequence: ["B", "A", "B", "A"],
 				timer: false
@@ -175,7 +175,7 @@
 				sequence: ["B", "A", "B", "A"]
 			},
 			{
-				instructions: "Checkpoint: Back to normal",
+				instructions: "Back to normal - #",
 				text: "AAA",
 				sequence: ["A", "A", "A"],
 				timer: false
@@ -271,7 +271,7 @@
 				sequence: ["B", "A", "A", "B", "A", "A", "A"]
 			},
 			{
-				instructions: "Checkpoint: Back to normal",
+				instructions: "Back to normal - #",
 				text: "AA",
 				sequence: ["A", "A"],
 				timer: false
@@ -290,11 +290,6 @@
 				instructions: "<span style=\"color:green\">GREEN R</span> is A, <span style=\"color:red\">RED F</span> is B",
 				text: "<span style=\"color:green\">R</span><span style=\"color:green\">A</span><span style=\"color:red\">F</span>",
 				sequence: ["A", "A", "B"]
-			},
-			{
-				instructions: "Back to normal",
-				text: "A",
-				sequence: ["A"]
 			},
 			{
 				instructions: "Read from right to left",
@@ -324,27 +319,12 @@
 			{
 				instructions: "<span style=\"color:green\">GREEN B</span> is A, <span style=\"color:red\">RED B</span> is B",
 				text: "BA<span style=\"color:green\">BB</span>AB<span style=\"color:red\">B</span>A",
-				sequence: ["B", "A", "A", "A", "A", "B", "A", "A"]
+				sequence: ["B", "A", "A", "A", "A", "B", "B", "A"]
 			},
 			{
 				instructions: "Back to normal",
 				text: "BBB",
 				sequence: ["B", "B", "B"]
-			},
-			{
-				instructions: "Read only A and B",
-				text: "BAVE",
-				sequence: ["B", "A"]
-			},
-			{
-				instructions: "Read only A and B",
-				text: "LOREM IBSUM",
-				sequence: ["B"]
-			},
-			{
-				instructions: "Read only A and B",
-				text: "A BAS BABAR !",
-				sequence: ["A", "B", "A", "B", "A", "B", "A"]
 			},
 			{
 				instructions: "Read only <span style=\"color:green\">GREEN</span>",
@@ -357,17 +337,134 @@
 				sequence: ["B", "A", "B"]
 			},
 			{
+				instructions: "Do not read <span style=\"color:red\">RED</span>",
+				text: "<span style=\"color:green\">A</span>B<span style=\"color:red\">B</span><span style=\"color:green\">B</span>A<span style=\"color:red\">AB</span>B",
+				sequence: ["A", "B", "B", "A", "B"]
+			},
+			{
+				instructions: "Do not read <span style=\"color:red\">GREEN</span>",
+				text: "<span style=\"color:green\">A</span>B<span style=\"color:red\">B</span><span style=\"color:green\">B</span>A<span style=\"color:red\">AB</span>B",
+				sequence: ["B", "B", "A", "A", "B", "B"]
+			},
+			{
 				instructions: "Press A 2 times for <span style=\"color:red\">RED B</span>",
-				text: "B<span style=\"color:red\">B</span>B",
-				sequence: ["B", "A", "A", "B"],
+				text: "B<span style=\"color:red\">B</span>",
+				sequence: ["B", "A", "A"],
 				timer: false
 			},
+			{
+				instructions: "Press A 2 times for <span style=\"color:red\">RED B</span>",
+				text: "B<span style=\"color:red\">A</span>A",
+				sequence: ["B", "A", "A"]
+			},
+			{
+				instructions: "Press A 2 times for <span style=\"color:red\">RED A</span>",
+				text: "<span style=\"color:red\">BA</span>",
+				sequence: ["B", "A", "A"]
+			},
+			{
+				instructions: "Press B 2 times for <span style=\"color:red\">RED B</span>",
+				text: "B<span style=\"color:red\">A</span><span style=\"color:green\">B</span>A",
+				sequence: ["B", "A", "B", "A"]
+			},
+			{
+				instructions: "Press B 2 times for <span style=\"color:red\">RED A</span>",
+				text: "B<span style=\"color:red\">A</span>",
+				sequence: ["B", "B", "B"]
+			},
+			{
+				instructions: "Read from right to left",
+				text: "AB",
+				sequence: ["B", "A"]
+			},
+			{
+				instructions: "Press A",
+				text: "A",
+				sequence: ["A"]
+			},
+			{
+				instructions: "Press B",
+				text: "A",
+				sequence: ["B"]
+			},
+			{
+				instructions: "Read from 5th character",
+				text: "AABBBA",
+				sequence: ["B", "A"]
+			},
+			{
+				instructions: "Read from 3rd <span style=\"color:red\">RED</span> char.",
+				text: "AA<span style=\"color:red\">A</span>B<span style=\"color:red\">A</span>A<span style=\"color:red\">B</span>B<span style=\"color:red\">A</span>",
+				sequence: ["B", "B", "A"]
+			},
+			{
+				instructions: "X=A, Y=B",
+				text: "XY",
+				sequence: ["A", "B"]
+			},
+			{
+				instructions: "Press B",
+				text: "AB",
+				sequence: ["B"]
+			},
+			{
+				instructions: "X=B, Y=A",
+				text: "YX",
+				sequence: ["A", "B"]
+			},
+			{
+				instructions: "X=A, Y=B",
+				text: "AXAYA",
+				sequence: ["A", "A", "A", "B", "A"]
+			},
+			{
+				instructions: "Read from left to right",
+				text: "BA",
+				sequence: ["B", "A"]
+			},
+			{
+				instructions: "X=B, Y=A, Z=A",
+				text: "YXZ",
+				sequence: ["A", "B", "A"]
+			},
+			{
+				instructions: "Y=A, X=B, Z=A - #",
+				text: "YXZ",
+				sequence: ["A", "B", "A"]
+			},
+			{
+				instructions: "X=A, Y=B, Z=B",
+				text: "ZAYABAX",
+				sequence: ["B", "A", "B", "A", "B", "A", "A"]
+			},
+			{
+				instructions: "Do not read <span style=\"color:red\">RED</span>",
+				text: "A<span style=\"color:green\">B</span><span style=\"color:red\">B</span><span style=\"color:green\">B</span>A<span style=\"color:red\">AB</span>B",
+				sequence: ["A", "B", "B", "A", "B"]
+			},
+			{
+				instructions: "X=A, Y=B, Z=B",
+				text: "ZAYABAX",
+				sequence: ["B", "A", "B", "A", "B", "A", "A"]
+			},
+			{
+				instructions: "Press 2nd, 7th and 9th",
+				text: "ABAABAAABABA",
+				sequence: ["B", "A", "B"]
+			}
 		],
 		init: function() {
 			this.startLevel(0);
 		},
 		startLevel: function(level) {
 			level > 0 || (level = 0);
+			if (this.level == this.levels.length) {
+				$("#instructions").html('VICTORY');
+				$("#text").html('YOU WIN');
+				$("input").hide();
+				timer.stop();
+				return;
+			}
 			this.level = level;
 			if (this.levels[this.level].timer !== false) {
 				timer.start();
@@ -375,7 +472,7 @@
 				timer.stop();
 			}
 			this.tmp_seq = this.levels[this.level].sequence.slice();
-			$("#instructions").html(this.levels[this.level].instructions);
+			$("#instructions").html(this.levels[this.level].instructions.replace('#', '' + Math.floor(this.level/(this.levels.length)*100) + '%'));
 			$("#text").html(this.levels[this.level].text);
 		}
 	}
